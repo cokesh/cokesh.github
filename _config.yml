@@ -3,7 +3,8 @@ email:              tmdgus5611@gmail.com
 description:        제가 스터디하는 것들을 기록합니다.
 author:             Jason
 #baseurl:            "/startbootstrap-clean-blog-jekyll"
-url:                "http://localhost:4000"
+url:                "https://cokesh.github.io"
+#url:                "http://localhost:4000"
 theme:              "jekyll-theme-clean-blog"
 # Social Profiles
 twitter_username:   ""
