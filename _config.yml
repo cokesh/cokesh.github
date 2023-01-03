@@ -4,7 +4,7 @@ description:        제가 스터디하는 것들을 기록합니다.
 author:             Jason
 url:                "https://cokesh.github.io/"
 baseurl:            ""
-theme:              "jekyll-theme-clean-blog"
+# theme:              "jekyll-theme-clean-blog"
 # Social Profiles
 twitter_username:   ""
 github_username:    cokesh
