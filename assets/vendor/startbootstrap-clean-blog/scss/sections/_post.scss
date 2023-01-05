@@ -47,3 +47,16 @@
         }
     }
 }
+
+.code-block {
+    display: block;
+    white-space: pre-wrap;
+    padding: 0.25rem;
+    background-color: #f7f6f3;
+    border: 1px solid #dadada;
+    color: #EB3232;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    line-height: 1.1rem;
+    margin: 0 5px;
+}

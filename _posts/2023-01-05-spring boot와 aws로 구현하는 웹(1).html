@@ -1,0 +1,66 @@
+---
+layout: post
+title: "스프링부트와 aws로 구현하는 웹(1)"
+subtitle: "빌드 단계"
+date: 2023-01-05
+background: '/img/posts/06.jpg'
+---
+
+<h2 class="section-heading">인텔리제이로 프로젝트 생성 & 빌드</h2>
+
+<p>먼저 인텔리제이를 ide를 켜서 프로젝트를 설정한다. <br>
+<code class="code-block">
+    buildscript {
+        ext {
+            springBootVersion = '2.1.9.RELEASE'
+        }
+        repositories {
+            mavenCentral()
+            jcenter()
+        }
+        dependencies {
+            classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        }
+    }
+    
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+    
+    group 'com.jason.book'
+    version '1.0-SNAPSHOT'
+    sourceCompatibility = 1.8
+    
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    
+    dependencies {
+        implementation ('org.springframework.boot:spring-boot-starter-web')
+        testImplementation ('org.springframework.boot:spring-boot-starter-test')
+    //    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    //    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    }
+    
+    test {
+        useJUnitPlatform()
+    }
+        
+</code>
+<br>
+다음 위와 같은 빌드 단계를 거쳐서 의존성 주입과 플러그인 설정을 한다. <br>
+dependencies를 설정 시에 주의할 점은 현재 나의 gradle버전은 7버전이라 compile() 과 testCompile() 코드가 작동하지 않는다.<br>
+compile이 implementation으로 바뀐 이유는 연결된 api 모두가 프로젝트에 의해 노출이 되기 때문에 implementation으로 설정하면 노출되지 않는다고 한다. (api가 노출되면 api로직에서 유효성 검사 및 기타 원하지 않는 형태의 데이터가 들어와 보안의 위협이 된다고 한다.)
+<a href="https://kotlinworld.com/317" target="_blank">참조 링크</a> <br>
+이 부분은 컴파일과 테스트 컴파일 시에 어떤 라이브러리를 쓸지를 정하는 단계이다.<br>
+그리고 깃이그노어를 작성하여 .gradle과 .idea 파일이 깃에 들어가지 않도록 한다. <br>
+</p>
+
+<!-- <blockquote class="blockquote"></blockquote> -->
+
+<!-- <img class="img-fluid" src="https://source.unsplash.com/Mn9Fa_wQH-M/800x450" alt="Demo Image"> -->
+<!-- <span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span> -->
+
+<!-- <p>Placeholder text by <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by <a href="https://unsplash.com/">Unsplash</a>.</p> -->
