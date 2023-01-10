@@ -1,54 +1,14 @@
 ---
 layout: post
-title: "스프링부트와 aws로 구현하는 웹(1)"
-subtitle: "빌드 단계"
-date: 2023-01-05
+title: "JPA vs Hibernate vs Spring Data JPA"
+subtitle: "각 개념의 차이점을 알아보자!"
+date: 2023-01-08
 background: '/img/posts/06.jpg'
 ---
 
-<h2 class="section-heading">인텔리제이로 프로젝트 생성 & 빌드</h2>
+<h2 class="section-heading">이것들이 왜 필요한 것일까?</h2>
 
-<p>먼저 인텔리제이를 ide를 켜서 프로젝트를 설정한다. <br>
-{% highlight html %} 
-    buildscript {
-        ext {
-            springBootVersion = '2.1.9.RELEASE'
-        }
-        repositories {
-            mavenCentral()
-            jcenter()
-        }
-        dependencies {
-            classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        }
-    }
-    
-    apply plugin: 'java'
-    apply plugin: 'eclipse'
-    apply plugin: 'org.springframework.boot'
-    apply plugin: 'io.spring.dependency-management'
-    
-    group 'com.jason.book'
-    version '1.0-SNAPSHOT'
-    sourceCompatibility = 1.8
-    
-    repositories {
-        mavenCentral()
-        jcenter()
-    }
-    
-    dependencies {
-        implementation ('org.springframework.boot:spring-boot-starter-web')
-        testImplementation ('org.springframework.boot:spring-boot-starter-test')
-    //    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    //    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
-    }
-    
-    test {
-        useJUnitPlatform()
-    }
-    
-{% endhighlight %}
+<p><br>
 
 <br>
 다음 위와 같은 빌드 단계를 거쳐서 의존성 주입과 플러그인 설정을 한다. <br>
